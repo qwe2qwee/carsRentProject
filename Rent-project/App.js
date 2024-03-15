@@ -1,11 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
+import SplushPage from "./Apps/screens/SplushPage/SplushPage";
+import SignUpScreen from "./Apps/screens/Login/SignUpScreen";
+import LoginScreen from "./Apps/screens/Login/LoginScreen";
+
 
 export default function App() {
   return (
-    <View className='flex-1 justify-center items-center bg-red-500'>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style='auto' />
+    <View className='w-full h-full'>
+      <LoginScreen/>
+      {/* <SignUpScreen/> */}
     </View>
   );
 }
