@@ -1,0 +1,49 @@
+{
+  "name": "rere",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^14.0.0",
+    "@react-native-async-storage/async-storage": "1.21.0",
+    "@react-navigation/drawer": "^6.6.15",
+    "@react-navigation/elements": "^1.3.30",
+    "@react-navigation/native": "^6.1.16",
+    "@react-navigation/stack": "^6.3.28",
+    "@rneui/themed": "^4.0.0-rc.8",
+    "@tanstack/react-query": "^5.28.4",
+    "@tanstack/react-query-devtools": "^5.28.4",
+    "@types/react": "~18.2.45",
+    "appwrite": "^14.0.0",
+    "expo": "~50.0.13",
+    "expo-status-bar": "~1.11.1",
+    "expo-updates": "^0.24.12",
+    "nativewind": "^2.0.11",
+    "react": "18.2.0",
+    "react-native": "^0.73.6",
+    "react-native-dotenv": "^3.4.0",
+    "react-native-elements": "^3.4.3",
+    "react-native-gesture-handler": "~2.14.0",
+    "react-native-reanimated": "~3.6.2",
+    "react-native-safe-area-context": "4.8.2",
+    "react-native-screens": "~3.29.0",
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-svg": "^15.1.0",
+    "react-native-swipe-gestures": "^1.0.5",
+    "react-native-vector-icons": "^10.0.3",
+    "react-query": "^3.39.3",
+    "swiper": "^11.0.7",
+    "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@expo/metro-config": "^0.17.6",
+    "tailwindcss": "^3.3.2"
+  },
+  "private": true
+}
