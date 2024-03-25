@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#FF6600"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -19,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FF6600"
-      }
+      },
+      "package": "com.qwe2qwe.Leagotest"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "01372591-8139-4371-b9f8-ab2cd7a382ec"
+      }
     }
   }
 }
