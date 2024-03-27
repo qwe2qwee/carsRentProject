@@ -11,16 +11,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#FF6600"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FF6600"
+        "backgroundColor": "#ffffff"
       },
       "package": "com.qwe2qwe.Leagotest"
     },

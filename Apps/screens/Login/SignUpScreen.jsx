@@ -1,5 +1,12 @@
 import React, { useContext, useState } from "react";
-import { View, Text, TextInput, Pressable, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  StatusBar,
+  ScrollView,
+} from "react-native";
 import Button from "../../components/Button";
 import AppwriteContext from "./AppwriteLog/AppwriteContext";
 import { useNavigation } from "@react-navigation/native";
@@ -124,75 +131,83 @@ const SignUpScreen = () => {
         </View>
       </View>
       <View className='bg-secondary flex-1 pt-12 px-8 rounded-t-3xl'>
-        <Text className='text-primary text-[30px] font-bold text-center'>
-          إنشاء حساب
-        </Text>
-        <TextInput
-          className='w-full border-solid border-b-2 h-9 border-b-thridC my-2'
-          placeholder='الاسم'
-          value={name}
-          onChangeText={setName}
-        />
-        <TextInput
-          className='w-full border-solid border-b-2 h-9 border-b-thridC my-2'
-          placeholder='الإيميل'
-          value={email}
-          onChangeText={setEmail}
-          keyboardType='email-address'
-          autoCapitalize='none'
-        />
-        <TextInput
-          className='w-full border-solid border-b-2 h-9 border-b-thridC my-2 placeholder:text-right'
-          placeholder='رقم الهاتف'
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-          keyboardType='phone-pad'
-          maxLength={10}
-        />
-
-        <View className='relative'>
+        <ScrollView>
+          <Text className='text-primary text-[30px] font-bold text-center'>
+            إنشاء حساب
+          </Text>
           <TextInput
-            className='w-full border-solid border-b-2 h-9 border-b-thridC my-2 pl-8 text-right'
-            placeholder='الرمز السري'
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={!showPassword} // Toggle based on state
+            className='w-full border-solid border-b-2 h-9 border-b-thridC my-2'
+            placeholder='الاسم'
+            value={name}
+            onChangeText={setName}
           />
-          <Pressable
-            onPress={() => setShowPassword(!showPassword)}
-            className='h-9 pt-3 w-6  absolute left-2 top-[-6] '>
-            <MaterialCommunityIcons name='eye-off' size={20} color={passShow} />
-          </Pressable>
-        </View>
-        <View className='relative mb-8'>
-          <TextInput 
-            className='w-full border-solid border-b-2 h-9 border-b-thridC my-2 pl-8 text-right'
-            placeholder=' تاكيد الرمز السري'
-            value={passwordConfirm}
-            onChangeText={setPasswordConfirm}
-            secureTextEntry={showConfirmPassword} // Toggle based on state
+          <TextInput
+            className='w-full border-solid border-b-2 h-9 border-b-thridC my-2'
+            placeholder='الإيميل'
+            value={email}
+            onChangeText={setEmail}
+            keyboardType='email-address'
+            autoCapitalize='none'
           />
-          <Pressable
-            onPress={() => setShowConfirmPassword(!showConfirmPassword)}
-            className='h-9 pt-3 w-6  absolute left-2 top-[-6] '>
-            <MaterialCommunityIcons
-              name='eye-off'
-              size={20}
-              color={passShowCon}
+          <TextInput
+            className='w-full border-solid border-b-2 h-9 border-b-thridC my-2 placeholder:text-right'
+            placeholder='رقم الهاتف'
+            value={phoneNumber}
+            onChangeText={setPhoneNumber}
+            keyboardType='phone-pad'
+            maxLength={10}
+          />
+
+          <View className='relative'>
+            <TextInput
+              className='w-full border-solid border-b-2 h-9 border-b-thridC my-2 pl-8 text-right'
+              placeholder='الرمز السري'
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={showPassword} // Toggle based on state
             />
-          </Pressable>
-        </View>
-        <Button title='انشاء' onPress={handleSignup} />
-        {isCreatingAccount && <Text className='text-blue-600'>Loading..</Text>}
-        <Text className='text-red-600'>{error}</Text>
-        <View className=' flex flex-row justify-between mt-5'>
-          <Pressable onPress={() => navigation.navigate("home")}>
-            <Text className='box text-primary'>دخول كزائر</Text>
-          </Pressable>
-          <Pressable onPress={() => navigation.navigate("Login")}>
-            <Text className='box'>لدي حساب</Text>
-          </Pressable>
-        </View>
+            <Pressable
+              onPress={() => setShowPassword(!showPassword)}
+              className='h-9 pt-3 w-6  absolute left-2 top-[-6] '>
+              <MaterialCommunityIcons
+                name='eye-off'
+                size={20}
+                color={passShow}
+              />
+            </Pressable>
+          </View>
+          <View className='relative mb-8'>
+            <TextInput
+              className='w-full border-solid border-b-2 h-9 border-b-thridC my-2 pl-8 text-right'
+              placeholder=' تاكيد الرمز السري'
+              value={passwordConfirm}
+              onChangeText={setPasswordConfirm}
+              secureTextEntry={showConfirmPassword} // Toggle based on state
+            />
+            <Pressable
+              onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+              className='h-9 pt-3 w-6  absolute left-2 top-[-6] '>
+              <MaterialCommunityIcons
+                name='eye-off'
+                size={20}
+                color={passShowCon}
+              />
+            </Pressable>
+          </View>
+          <Button title='انشاء' onPress={handleSignup} />
+          {isCreatingAccount && (
+            <Text className='text-blue-600'>Loading..</Text>
+          )}
+          <Text className='text-red-600'>{error}</Text>
+          <View className=' flex flex-row justify-between mt-5'>
+            <Pressable onPress={() => navigation.navigate("home")}>
+              <Text className='box text-primary'>دخول كزائر</Text>
+            </Pressable>
+            <Pressable onPress={() => navigation.navigate("Login")}>
+              <Text className='box'>لدي حساب</Text>
+            </Pressable>
+          </View>
+        </ScrollView>
       </View>
     </View>
   );

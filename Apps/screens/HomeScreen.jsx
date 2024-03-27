@@ -30,7 +30,6 @@ const HomeScreen = () => {
           Signout={Signout}
         />
         <SearchseC toggleSidebar={toggleSidebar} />
-        <TowB />
         <CarsLogo />
         <ListCars />
       </ScrollView>

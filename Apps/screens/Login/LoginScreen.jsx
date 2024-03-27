@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Pressable, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  StatusBar,
+  ScrollView,
+} from "react-native";
 import Button from "../../components/Button";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -66,7 +73,6 @@ const LoginScreen = () => {
         return setError('"فشل تسجيل الدخول الرجاء المحاولة لاحقا"');
       }
 
-      
       console.log("User created successfully:");
       setError("");
       // Handle successful signup (e.g., navigate to a confirmation screen)
@@ -89,49 +95,51 @@ const LoginScreen = () => {
       </View>
 
       <View className='bg-secondary flex-1 pt-16 px-8 rounded-t-[40px]'>
-        <Text className='text-primary text-[30px] mb-10 mt-9 font-bold text-center'>
-          تسجيل دخول
-        </Text>
-
-        <TextInput
-          className='w-full border-solid border-b-2 h-9 border-b-thridC my-5'
-          placeholder='Email'
-          value={email}
-          onChangeText={setEmail}
-          keyboardType='email-address'
-          autoCapitalize='none'
-        />
-        <View className='relative'>
-          <TextInput
-            className='w-full border-solid border-b-2 h-9 border-b-thridC my-5 mb-4 pr-8'
-            placeholder='Password'
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={showPassword} // Toggle based on state
-          />
-          <Pressable
-            onPress={() => {
-              setShowPassword(!showPassword);
-            }}
-            className='h-5 w-5  absolute right-2 top-6'>
-            <MaterialCommunityIcons name='eye-off' size={20} color='black' />
-          </Pressable>
-        </View>
-        <Pressable
-          onPress={() => console.log("forget the pass")}
-          className=' ml-48 '>
-          <Text className=' text-primary mb-5 mt-0  text-right '>
-            نسيت كلمة المرور ?
+        <ScrollView>
+          <Text className='text-primary text-[30px] mb-10 mt-9 font-bold text-center'>
+            تسجيل دخول
           </Text>
-        </Pressable>
 
-        <Button title='تسجيل دخول' onPress={handleLogin} />
-        <Text className='text-red-600'>{error}</Text>
-        <View className=' flex flex-row-reverse justify-between mt-7'>
-          <Pressable onPress={() => navigation.navigate("Signup")}>
-            <Text className='box'>إنشاء حساب</Text>
+          <TextInput
+            className='w-full border-solid border-b-2 h-9 border-b-thridC my-5'
+            placeholder='Email'
+            value={email}
+            onChangeText={setEmail}
+            keyboardType='email-address'
+            autoCapitalize='none'
+          />
+          <View className='relative'>
+            <TextInput
+              className='w-full border-solid border-b-2 h-9 border-b-thridC my-5 mb-4 pr-8'
+              placeholder='Password'
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={showPassword} // Toggle based on state
+            />
+            <Pressable
+              onPress={() => {
+                setShowPassword(!showPassword);
+              }}
+              className='h-5 w-5  absolute right-2 top-6'>
+              <MaterialCommunityIcons name='eye-off' size={20} color='black' />
+            </Pressable>
+          </View>
+          <Pressable
+            onPress={() => console.log("forget the pass")}
+            className=' ml-48 '>
+            <Text className=' text-primary mb-5 mt-0  text-right '>
+              نسيت كلمة المرور ?
+            </Text>
           </Pressable>
-        </View>
+
+          <Button title='تسجيل دخول' onPress={handleLogin} />
+          <Text className='text-red-600'>{error}</Text>
+          <View className=' flex flex-row-reverse justify-between mt-7'>
+            <Pressable onPress={() => navigation.navigate("Signup")}>
+              <Text className='box'>إنشاء حساب</Text>
+            </Pressable>
+          </View>
+        </ScrollView>
       </View>
     </View>
   );
