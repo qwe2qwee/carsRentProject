@@ -11,6 +11,7 @@ import Support from "../screens/Support";
 import DeatalsScreen from "../screens/DeatalsScreen";
 import { useEffect, useState } from "react";
 import { useUserContext } from "../../context/authcontext";
+import Bookin from "../screens/Bookin";
 
 const Stack = createStackNavigator();
 
@@ -77,6 +78,11 @@ function MyStack() {
       <Stack.Screen
         name='deatals'
         component={DeatalsScreen}
+        options={{ headerShown: false }}
+      />
+       <Stack.Screen
+        name='booking'
+        component={Bookin}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

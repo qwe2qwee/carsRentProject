@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  useWindowDimensions,
-  Animated,
-} from "react-native";
+import { View, StyleSheet, useWindowDimensions, Animated } from "react-native";
 
 const Paginator = ({ data, scrollX }) => {
   const { width } = useWindowDimensions();
@@ -26,7 +20,10 @@ const Paginator = ({ data, scrollX }) => {
           extrapolate: "clamp",
         });
         return (
-          <Animated.View style={[styles.dot, { width: dotWidth , opacity}]} key={i} />
+          <Animated.View
+            style={[styles.dot, { width: dotWidth, opacity }]}
+            key={i}
+          />
         );
       })}
     </View>

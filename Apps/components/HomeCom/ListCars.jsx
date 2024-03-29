@@ -92,7 +92,10 @@ const ListCars = () => {
                   <Text className='m-auto text-primary'>{product.price}</Text>
                   <Text className='m-auto text-primary'>{product.deal}</Text>
                 </View>
-                <HomeBt title='حجز الان' />
+                <HomeBt
+                  title='حجز الان'
+                  onPress={() => navigate.navigate("booking")}
+                />
               </View>
             </View>
           </Pressable>

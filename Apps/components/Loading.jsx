@@ -3,9 +3,9 @@ import { View, Text, ActivityIndicator } from "react-native";
 
 const Loading = () => {
   return (
-    <View className='justify-center items-center flex-1 bg-primary'>
+    <View className='justify-center items-center'>
       <ActivityIndicator size='large' color='#fff' />
-      <Text>Loading</Text>
+      <Text className='text-white'>جاري التحميل</Text>
     </View>
   );
 };

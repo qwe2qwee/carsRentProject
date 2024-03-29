@@ -3,8 +3,8 @@ import { View, Text } from "react-native";
 
 const LineDetals = ({ leftT, rightT, leftC, rightC, leftB, righB }) => {
   return (
-    <View className='flex w-full h-7 flex-row pb-3 my-3 '>
-      <View className='bg-gray-200 p-2 flex-2 w-24 h-9 m-2 flex flex-row justify-center items-start  '>
+    <View className='flex w-full h-7 flex-row pb-3 my-3  '>
+      <View className='bg-gray-200 p-2 flex-2 w-24 h-9 m-2 flex flex-row justify-center items-end  '>
         <Text className='text-primary mr-1 text-right flex-1'>{leftT}</Text>
         <Text className='flex-1 text-[9] text-right '>{rightT}</Text>
       </View>

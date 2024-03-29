@@ -64,7 +64,7 @@ const CarsLogo = () => {
     // ... more scroll cards
   ]);
   return (
-    <View className='bg-white pb-3 pt-8 relative'>
+    <View className='bg-white pb-3 pt-8 relative mt-8'>
       <Pressable
         onPress={() => {
           console.log("click");

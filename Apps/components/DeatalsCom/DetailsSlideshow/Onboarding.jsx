@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, useWindowDimensions } from "react-native";
+import { View, Image, useWindowDimensions } from "react-native";
 
 const Onboarding = ({ Url }) => {
   console.log(Url);

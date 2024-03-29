@@ -1,14 +1,16 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import LineDetals from "../LineDetals";
-import HomeBt from "../../HomeCom/HomeBt";
+import { useNavigation } from "@react-navigation/native";
 
 const Deatals = ({ route }) => {
   const receivedData = route.params?.data;
   console.log(receivedData.model + " fadee");
 
+  const navigation = useNavigation();
+
   return (
-    <View className='flex flex-col h-full w-full justify-center '>
+    <View className='flex flex-col h-full w-full justify-start items-center '>
       <LineDetals
         leftT={receivedData.year}
         rightT='المودل'
@@ -43,7 +45,7 @@ const Deatals = ({ route }) => {
       />
 
       <TouchableOpacity
-        onPress={() => console.log("here is")}
+        onPress={() => navigation.navigate("booking")}
         className='w-60 h-12 rounded-md bg-primary mt-10 mx-auto flex justify-center items-center '>
         <Text className='text-secondary text-2xl'>احجز الان</Text>
       </TouchableOpacity>
