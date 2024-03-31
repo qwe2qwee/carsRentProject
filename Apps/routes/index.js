@@ -32,7 +32,10 @@ function MyStack() {
   // }, []);
 
   return (
-    <Stack.Navigator screenOptions={{}}>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: false,
+      }}>
       <Stack.Screen
         name='Login'
         component={LoginScreen}
@@ -53,37 +56,58 @@ function MyStack() {
       <Stack.Screen
         name='profile'
         component={Profile}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
       <Stack.Screen
         name='favorite'
         component={Favorite}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
       <Stack.Screen
         name='policies'
         component={Policies}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
       <Stack.Screen
         name='reservations'
         component={Reservations}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
       <Stack.Screen
         name='support'
         component={Support}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
       <Stack.Screen
         name='deatals'
         component={DeatalsScreen}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name='booking'
         component={Bookin}
-        options={{ headerShown: false }}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
       />
     </Stack.Navigator>
   );
