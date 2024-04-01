@@ -52,9 +52,11 @@ const ListCars = () => {
         <Text className='absolute right-7 top-1 font-bold text-texttt'>
           احدث السيارات
         </Text>
-        <Text className='left-0 absolute top-1 font-bold text-primary'>
-          المزيد
-        </Text>
+        <Pressable
+          onPress={()=>navigate.navigate("cars")}
+          className='left-0 absolute top-1 '>
+          <Text className='font-bold text-primary'> المزيد</Text>
+        </Pressable>
       </View>
       <View className='flex flex-wrap flex-row'>
         {productCardData.map((product) => (
@@ -71,26 +73,22 @@ const ListCars = () => {
                 source={product.imageUrl}
                 className='object-cover w-full'
               />
-              <View className='p-3 rounded-lg py-3'>
-                <View className='flex-row-reverse'>
-                  <Text className='font-bold text-texttt flex justify-center items-center'>
+              <View className='p-3 rounded-lg py-3 '>
+                <View className='flex-row-reverse flex-nowrap '>
+                  <Text className='font-bold text-texttt flex justify-center items-end w-2/3 flex-1  text-[15px] '>
                     {product.title}
                   </Text>
-                  <Text className='border-x-[1px] border-texttt  px-1 text-[10px] mx-1 flex justify-center items-center'>
-                    <Text className='font-thin text-[6px]'>مودل</Text>
-                    {product.model}
-                  </Text>
-                  <View className='flex-row m-0 flex-nowrap'>
-                    <View className=' flex flex-col mx-[2px]'>
-                      <Text className='text-[6px]'>فقط</Text>
-                      <Text className='text-[6px]'>اشهر</Text>
-                    </View>
-                    <Text>{product.month}</Text>
+                  <View className='flex justify-center items-end  w-2/5 border-r-[1px] text-texttt border-texttt  px-1 text-[13px] mx-1 '>
+                    <Text className=' mr-3'>{product.model}</Text>
                   </View>
                 </View>
                 <View className='text-center my-2'>
-                  <Text className='m-auto text-primary'>{product.price}</Text>
-                  <Text className='m-auto text-primary'>{product.deal}</Text>
+                  <Text className='m-auto text-primary text-xl font-bold'>
+                    {product.price}
+                  </Text>
+                  <Text className='m-auto text-primary text-xs'>
+                    {product.deal}
+                  </Text>
                 </View>
                 <HomeBt
                   title='حجز الان'

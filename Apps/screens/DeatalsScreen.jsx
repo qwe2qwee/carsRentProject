@@ -66,6 +66,22 @@ const DeatalsScreen = ({ route }) => {
       month: "12",
       price: "2000",
     },
+    {
+      id: 7,
+      title: "هونداي كونا",
+      model: "2020",
+      deal: "قسط شهري",
+      month: "24",
+      price: "800",
+    },
+    {
+      id: 8,
+      title: "شانجان سيدان",
+      model: "2021",
+      deal: "قسط شهري",
+      month: "15",
+      price: "1000",
+    },
   ];
 
   const filteredItem = dett.find((item) => item.id === carId);

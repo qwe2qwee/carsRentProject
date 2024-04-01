@@ -6,8 +6,8 @@ import OptionRent from "./OptionRent";
 const RentPage = () => {
   return (
     <View className='flex flex-1  justify-start items-center w-full'>
-      <Lable title='نوع الايجار'/>
-      <OptionRent/>
+      <Lable title='نوع الايجار' />
+      <OptionRent />
     </View>
   );
 };

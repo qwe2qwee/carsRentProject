@@ -49,7 +49,7 @@ const DetailsSlideShow = ({ dtat }) => {
   ];
 
   return (
-    <View className=' '>
+    <View className=''>
       <View className='h-72 w-full relative m-auto centered-element'>
         <View className='h-72 w-full bg-black'>
           <FlatList
@@ -71,7 +71,7 @@ const DetailsSlideShow = ({ dtat }) => {
           <Paginator data={im} scrollX={scrollX} />
         </View>
       </View>
-      <View className='relative mb-20'>
+      <View className='relative mb-16 '>
         <View className='h-20 border-b-[3px] border-b-[#EEEEEE] bg-secondary rounded-t-3xl absolute top-[-19px] z-40 w-full pt-2'>
           <View className='flex flex-row-reverse items-center  mx-3 h-14'>
             <View className='flex-basis-1/3 flex flex-col'>

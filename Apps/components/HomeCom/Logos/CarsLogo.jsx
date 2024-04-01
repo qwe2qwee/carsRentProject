@@ -64,37 +64,39 @@ const CarsLogo = () => {
     // ... more scroll cards
   ]);
   return (
-    <View className='bg-white pb-3 pt-8 relative mt-8'>
-      <Pressable
-        onPress={() => {
-          console.log("click");
-        }}
-        className='right-3 top-1 absolute'>
-        <Text className=' text-texttt font-bold'>العلامات التجارية</Text>
-      </Pressable>
+    <View className=' pb-1 pt-9 bg-white '>
+      <View className='h-44  relative pt-11'>
+        <Pressable
+          onPress={() => {
+            console.log("click");
+          }}
+          className='right-3 top-1 absolute'>
+          <Text className=' text-texttt font-bold'>العلامات التجارية</Text>
+        </Pressable>
 
-      <Pressable
-        onPress={() => {
-          console.log("click");
-        }}
-        className='left-3 top-1 absolute'>
-        <Text className=' text-primary font-bold'>المزيد</Text>
-      </Pressable>
+        <Pressable
+          onPress={() => {
+            console.log("click");
+          }}
+          className='left-3 top-1 absolute'>
+          <Text className=' text-primary font-bold'>المزيد</Text>
+        </Pressable>
 
-      <FlatList // Use FlatList for horizontal scroll cards
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        data={scrollCardData}
-        renderItem={({ item }) => (
-          <View>
-            <TouchableOpacity className='p-4 bg-primary mx-2 rounded-2xl flex items-center justify-center'>
-              {item.imageUrl}
-            </TouchableOpacity>
-            <Text className='text-center mt-2 text-texttt'>{item.title}</Text>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-      />
+        <FlatList // Use FlatList for horizontal scroll cards
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          data={scrollCardData}
+          renderItem={({ item }) => (
+            <View>
+              <TouchableOpacity className='p-4 bg-primary mx-2 rounded-2xl flex items-center justify-center'>
+                {item.imageUrl}
+              </TouchableOpacity>
+              <Text className='text-center mt-2 text-texttt'>{item.title}</Text>
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </View>
   );
 };

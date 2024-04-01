@@ -27,7 +27,7 @@ const Bookin = () => {
   return (
     <View className='flex justify-start items-center bg-[#F6F6F8] flex-1 relative '>
       <View className='mt-20'>
-        <Text className=' text-xl'>خيارات الحجز</Text>
+        <Text className=' text-xl text-primary font-bold'>خيارات الحجز</Text>
       </View>
 
       <Lable title='إختار نوع الحجز' />
@@ -50,8 +50,8 @@ const Bookin = () => {
           <Text className={rentT}>تمليك</Text>
         </Pressable>
       </View>
-      <MangePage page={activeButton}/>
-      <ColorsSelect/>
+      <MangePage page={activeButton} />
+      <ColorsSelect />
     </View>
   );
 };

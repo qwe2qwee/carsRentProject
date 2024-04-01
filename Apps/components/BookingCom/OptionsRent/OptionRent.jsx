@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
+import Lable from "../Lable";
 
 const OptionRent = () => {
   const [Selectedplan, setSelectedplan] = useState("");
   const [SelectedLong, setSelectedLong] = useState("daily");
+
+  console.log(" اخترت الخطة " + Selectedplan);
+  console.log(" اخترت المدة " + SelectedLong);
 
   const options = [
     { key: "daily", value: "يومي" },
@@ -61,8 +65,10 @@ const OptionRent = () => {
           dropdownTextStyles={{ textAlign: "center" }}
         />
 
-        <View className='mt-6'>
-          {Selectedplan && (
+        {Selectedplan && (
+          <View className=''>
+            <Lable title='اختر العدد' />
+
             <SelectList
               setSelected={(val) => setSelectedLong(val)}
               data={longchoose[Selectedplan]}
@@ -76,11 +82,8 @@ const OptionRent = () => {
                 flexDirection: "row",
               }}
             />
-          )}
-        </View>
-
-        <Text className='w-full items-center'>{Selectedplan}</Text>
-        <Text className='w-full items-center'>{SelectedLong}</Text>
+          </View>
+        )}
       </ScrollView>
     </View>
   );
