@@ -53,7 +53,7 @@ const ListCars = () => {
           احدث السيارات
         </Text>
         <Pressable
-          onPress={()=>navigate.navigate("cars")}
+          onPress={() => navigate.navigate("cars")}
           className='left-0 absolute top-1 '>
           <Text className='font-bold text-primary'> المزيد</Text>
         </Pressable>
@@ -69,10 +69,13 @@ const ListCars = () => {
             key={product.id}
             className=' w-1/2'>
             <View className=' bg-white my-2  mx-2 rounded-lg pt-5'>
-              <Image
-                source={product.imageUrl}
-                className='object-cover w-full'
-              />
+              <View className="relative  h-24 w-20 bg-cover object-cover">
+                <Image
+                  source={product.imageUrl}
+                  className='object-cover absolute'
+                />
+              </View>
+
               <View className='p-3 rounded-lg py-3 '>
                 <View className='flex-row-reverse flex-nowrap '>
                   <Text className='font-bold text-texttt flex justify-center items-end w-2/3 flex-1  text-[15px] '>
