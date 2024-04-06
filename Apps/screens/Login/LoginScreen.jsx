@@ -68,6 +68,7 @@ const LoginScreen = () => {
         setPassword("");
 
         navigation.navigate("home");
+
         console.log("ok");
       } else {
         return setError('"فشل تسجيل الدخول الرجاء المحاولة لاحقا"');

@@ -7,6 +7,7 @@ import ListCars from "../components/HomeCom/ListCars";
 import { useSignOutAccount } from "../../lib/react-quary/qeuries";
 import { useNavigation } from "@react-navigation/native";
 import Sidebar from "../components/sidebar/Sidebar";
+import * as SplashScreen from "expo-splash-screen";
 
 const HomeScreen = () => {
   const { mutate: Signout, isSuccess } = useSignOutAccount();
@@ -20,6 +21,7 @@ const HomeScreen = () => {
   }, [isSuccess]);
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
+  SplashScreen.hideAsync();
 
   return (
     <View className='relative h-full'>

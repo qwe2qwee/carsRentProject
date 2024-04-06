@@ -9,6 +9,8 @@ import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useUserContext } from "../../../context/authcontext";
+import * as SplashScreen from "expo-splash-screen";
+
 
 
 // import { Icon } from '@rneui/themed';
@@ -22,6 +24,7 @@ const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
     let real = await checkAuthUser();
     setUser(real);
     console.log("reces");
+
   }, []);
 
   const sidebarClasses = `  absolute z-30 right-0 top-0 h-screen overflow-auto bg-white shadow-lg w-72 bg-red transition duration-1000 ease-in-out transform rounded-l-3xl shadow-3xl z-30 ${
