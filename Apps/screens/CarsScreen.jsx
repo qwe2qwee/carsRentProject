@@ -64,6 +64,7 @@ const CarsScreen = () => {
             width: 90,
             borderRadius: 4,
             margin: 1,
+            borderWidth: 0,
             display: "flex",
             flexDirection: "row-reverse",
           }}
@@ -92,6 +93,7 @@ const CarsScreen = () => {
             height: 45,
             width: 90,
             borderRadius: 4,
+            borderWidth: 0,
             margin: 1,
             display: "flex",
             flexDirection: "row-reverse",
@@ -120,6 +122,7 @@ const CarsScreen = () => {
             backgroundColor: "#FF6600",
             height: 45,
             width: 90,
+            borderWidth: 0,
             borderRadius: 4,
             margin: 1,
             display: "flex",

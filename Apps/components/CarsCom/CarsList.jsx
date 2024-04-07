@@ -144,10 +144,9 @@ const CarsList = ({ grid }) => {
                     height: "100%",
                     resizeMode: "cover",
                   }}>
-                  {/* Your other content here */}
+                  {/* Your other content here*/}
                 </ImageBackground>
               </View>
-
               <View className={textVsButton}>
                 <View className={textCountainer}>
                   <Text className={title}>{product.title}</Text>
