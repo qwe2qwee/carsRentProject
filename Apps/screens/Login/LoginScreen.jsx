@@ -10,10 +10,7 @@ import {
 import Button from "../../components/Button";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import {
-  useCreateUserAccount,
-  useSignInAccount,
-} from "../../../lib/react-quary/qeuries";
+import { useSignInAccount } from "../../../lib/react-quary/qeuries";
 import { useUserContext } from "../../../context/authcontext";
 
 const LoginScreen = () => {

@@ -16,7 +16,11 @@ import Toyota, {
   Nissan,
 } from "./Cars";
 
+import { useNavigation } from "@react-navigation/native";
+
+
 const CarsLogo = () => {
+  const navv = useNavigation()
   const [scrollCardData, setScrollCardData] = React.useState([
     // Add your scroll card data here (image URLs, titles, etc.)
 
@@ -69,6 +73,7 @@ const CarsLogo = () => {
         <Pressable
           onPress={() => {
             console.log("click");
+            // navv.navigate('otp')
           }}
           className='right-3 top-1 absolute'>
           <Text className=' text-texttt font-bold'>العلامات التجارية</Text>
@@ -76,7 +81,8 @@ const CarsLogo = () => {
 
         <Pressable
           onPress={() => {
-            console.log("click");
+            console.log("click")
+            
           }}
           className='left-3 top-1 absolute'>
           <Text className=' text-primary font-bold'>المزيد</Text>

@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { useUserContext } from "../../context/authcontext";
 import Bookin from "../screens/Bookin";
 import CarsScreen from "../screens/CarsScreen";
+import OtpScreen from "../screens/OtpScreen";
 
 const Stack = createStackNavigator();
 
@@ -113,6 +114,14 @@ function MyStack() {
       <Stack.Screen
         name='cars'
         component={CarsScreen}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
+      />
+      <Stack.Screen
+        name='otp'
+        component={OtpScreen}
         options={{
           headerTransparent: true,
           headerTitle: "",

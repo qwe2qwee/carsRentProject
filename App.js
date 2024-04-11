@@ -11,6 +11,7 @@ import MyStack from "./Apps/routes";
 import { AuthProvider, useUserContext } from "./context/authcontext";
 import { QueryProvider } from "./lib/react-quary/QueryProvider";
 import { useCallback, useEffect, useState } from "react";
+import OtpScreen from "./Apps/screens/OtpScreen";
 
 SplashScreen.preventAutoHideAsync();
 
