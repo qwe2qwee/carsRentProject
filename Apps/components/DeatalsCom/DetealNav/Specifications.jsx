@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -10,7 +10,7 @@ import { Feather } from "@expo/vector-icons";
 
 const Specifications = () => {
   return (
-    <View>
+    <ScrollView>
       <View className='flex flex-row my-7'>
         <View className='w-12 h-12 flex justify-center items-center  flex-1'>
           <Entypo name='camera' size={24} color='black' />
@@ -54,7 +54,7 @@ const Specifications = () => {
           <Text className='mt-3'>فتحة سقف</Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

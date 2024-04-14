@@ -13,6 +13,7 @@ const TopTabsGroup = ({ Data }) => {
       tabBarOptions={{
         activeTintColor: "#FF6600",
         inactiveTintColor: "black",
+
         tabBarActiveTintColor: "#FF6600",
         activeBackgroundColor: "red",
         labelStyle: { fontSize: 10 },

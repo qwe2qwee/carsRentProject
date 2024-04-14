@@ -14,6 +14,7 @@ import { useUserContext } from "../../context/authcontext";
 import Bookin from "../screens/Bookin";
 import CarsScreen from "../screens/CarsScreen";
 import OtpScreen from "../screens/OtpScreen";
+import WelcomScreen from "../screens/WelcomScreen";
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,7 @@ function MyStack() {
       screenOptions={{
         headerTitle: false,
       }}>
+        
       <Stack.Screen
         name='Login'
         component={LoginScreen}
@@ -61,6 +63,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -69,6 +72,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -77,6 +81,8 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
+          headerTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -85,6 +91,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -93,6 +100,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -101,6 +109,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -109,6 +118,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -117,6 +127,7 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
       />
       <Stack.Screen
@@ -125,7 +136,13 @@ function MyStack() {
         options={{
           headerTransparent: true,
           headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
         }}
+      />
+      <Stack.Screen
+        name='welcome'
+        component={WelcomScreen}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

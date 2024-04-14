@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 
 const Installments = () => {
   return (
-    <View>
+    <ScrollView>
       <View className='flex flex-row my-12'>
         <View className='w-12 h-12 flex justify-center items-center  flex-1'>
           <View className='w-16 h-16 bg-primary flex justify-center items-center rounded-lg'>
@@ -44,7 +44,7 @@ const Installments = () => {
           <Text className='mt-1 text-lg'>شهر</Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

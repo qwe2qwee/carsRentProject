@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, SafeAreaView } from "react-native";
 // import SplushPage from "./Apps/screens/SplushPage/SplushPage";
 import SignUpScreen from "./Apps/screens/Login/SignUpScreen";
 import LoginScreen from "./Apps/screens/Login/LoginScreen";
@@ -30,14 +30,15 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
-
   return (
     <NavigationContainer>
       <QueryProvider>
         <AuthProvider>
-          <View className='w-full h-full'>
-            <MyStack />
-          </View>
+          <SafeAreaView className='bg-primary' style={{ flex: 1 }}>
+            <View className='flex flex-1'>
+              <MyStack />
+            </View>
+          </SafeAreaView>
         </AuthProvider>
       </QueryProvider>
     </NavigationContainer>

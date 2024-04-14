@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -42,6 +42,8 @@ const SignUpScreen = () => {
   let passShow = showPassword ? "#6C6C6C" : "black";
   let passShowCon = showConfirmPassword ? "#6C6C6C" : "black";
 
+
+
   const handleSignup = async () => {
     // Basic field validation with error handling
     try {
@@ -81,7 +83,7 @@ const SignUpScreen = () => {
       // Call createUserAccount and handle potential errors
       const newUser = await createUserAccount(user);
       if (!newUser) {
-        throw new Error("Failed to create user account");
+        throw new Error("فشل في إنشاء مستخدم جديد");
       }
 
       const session = await signInAccount({
@@ -97,17 +99,14 @@ const SignUpScreen = () => {
 
       const isLoggedIn = await checkAuthUser();
 
-      console.log(isLoggedIn + " fla");
-
       if (isLoggedIn) {
         setName("");
         setPhoneNumber("");
         setEmail("");
         setPassword("");
-        navigation.navigate("home");
-        console.log("ok");
+        navigation.navigate("welcome");
       } else {
-        return setError('"Login failed. Please try again."');
+        return setError('"فشل تسجيل الدخول , الرجاء المحاولة مجددا"');
       }
 
       console.log("User created successfully:", newUser.name);
@@ -195,7 +194,7 @@ const SignUpScreen = () => {
             </Pressable>
           </View>
           <Button title='انشاء' onPress={handleSignup} />
-          {isCreatingAccount && (
+          {isUserLoading && (
             <Text className='text-blue-600'>Loading..</Text>
           )}
           <Text className='text-red-600'>{error}</Text>

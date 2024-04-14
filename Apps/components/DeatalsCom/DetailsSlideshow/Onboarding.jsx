@@ -2,7 +2,6 @@ import React from "react";
 import { View, Image, useWindowDimensions } from "react-native";
 
 const Onboarding = ({ Url }) => {
-  console.log(Url);
   const width = useWindowDimensions();
 
   return (

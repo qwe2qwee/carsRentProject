@@ -49,8 +49,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           email: currentAccount.email,
         });
         setIsAuthenticated(true);
-        navigation.navigate("home");
-
         return true;
       }
       return false;

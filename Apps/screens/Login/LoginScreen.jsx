@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -18,11 +18,23 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(true);
-  const { checkAuthUser } = useUserContext();
+  const { checkAuthUser, isLoading } = useUserContext();
 
   const navigation = useNavigation();
 
   const { mutateAsync: signInAccount } = useSignInAccount();
+
+  const reY = async () => {
+    const isLoggedIn = await checkAuthUser();
+
+    if (isLoggedIn) {
+      navigation.navigate("home");
+    }
+  };
+
+  useEffect(() => {
+    reY();
+  }, []);
 
   const handleLogin = async () => {
     // Basic field validation with error handling
@@ -65,8 +77,6 @@ const LoginScreen = () => {
         setPassword("");
 
         navigation.navigate("home");
-
-        console.log("ok");
       } else {
         return setError('"فشل تسجيل الدخول الرجاء المحاولة لاحقا"');
       }

@@ -73,7 +73,7 @@ const CarsLogo = () => {
         <Pressable
           onPress={() => {
             console.log("click");
-            // navv.navigate('otp')
+            navv.navigate('otp')
           }}
           className='right-3 top-1 absolute'>
           <Text className=' text-texttt font-bold'>العلامات التجارية</Text>
