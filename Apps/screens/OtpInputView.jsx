@@ -1,56 +1,61 @@
-import React, { useState, useRef } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import PropTypes from 'prop-types'; // For prop type validation (optional)
+import React, { useState, useRef } from "react";
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+import PropTypes from "prop-types";
 
 const OTPInputView = ({
-  code = '',
+  code = "",
   style,
   pinCount = 4,
   autoFocusOnLoad = false,
   onCodeFilled,
-  accessibilityLabel = 'One-time passcode input',
-  resendCodeButtonLabel = 'Resend Code',
+  accessibilityLabel = "One-time passcode input",
+  resendCodeButtonLabel = "Resend Code",
   onResendCode,
-  secureTextEntry = false, // Optional for password masking
-  ...otherProps // For future customization
+  secureTextEntry = false,
+  fieldProps = {}, // Default props for field customization
+  ...otherProps
 }) => {
-  const [fields, setFields] = useState(Array(pinCount).fill(''));
-  const ref = useRef(React.createRef()); // Initialize ref outside conditional
+  const [fields, setFields] = useState(Array(pinCount).fill(""));
+  const ref = useRef(Array(pinCount).fill(null)); // Array of refs for each field
 
   const handleFieldChange = (text, index) => {
     const newFields = [...fields];
     newFields[index] = text;
     setFields(newFields);
 
-    // Move focus to the next field if the current field is filled
     if (text.length === 1 && index < pinCount - 1) {
-      ref.current?.children[index + 1]?.focus(); // Use nullish coalescing for ref access
+      ref.current[index + 1]?.focus(); // Focus the next field
+    } else if (text.length === 0) { // Handle backspace to go back to previous field
+      ref.current[index - 1]?.focus();
     }
 
-    // Check if all fields are filled and call onCodeFilled
-    if (newFields.every(field => field.length > 0)) {
-      onCodeFilled?.(newFields.join('')); // Call only if onCodeFilled exists
+    if (newFields.every((field) => field.length > 0)) {
+      onCodeFilled?.(newFields.join(""));
     }
   };
 
   const handleResendCode = () => {
-    onResendCode?.(); // Call only if onResendCode exists
+    onResendCode?.();
   };
 
   const renderFields = () => {
     return fields.map((field, index) => (
       <TextInput
         key={index}
-        ref={ref.current?.children?.[index] ?? React.createRef()} // Use nullish coalescing for ref access
+        ref={(el) => (ref.current[index] = el)} // Assign ref to each element
         value={field}
-        onChangeText={text => handleFieldChange(text, index)}
-        keyboardType="numeric" // Set keyboard type for numbers
-        maxLength={1} // Limit input to one character
-        secureTextEntry={secureTextEntry} // Optional for password masking
-        style={[styles.field, style?.field]} // Combine component and custom styles
-        {...otherProps?.field} // Only spread if otherProps.field exists
-        {...fieldProps} // Optional props for field customization
-        
+        onChangeText={(text) => handleFieldChange(text, index)}
+        keyboardType="numeric"
+        maxLength={1}
+        secureTextEntry={secureTextEntry}
+        style={[styles.field, style?.field, ...(otherProps.field ?? [])]} // Combine styles with optional defaults
+        {...(fieldProps ?? {})} // Spread fieldProps if provided
       />
     ));
   };
@@ -77,22 +82,23 @@ OTPInputView.propTypes = {
   resendCodeButtonLabel: PropTypes.string,
   onResendCode: PropTypes.func,
   secureTextEntry: PropTypes.bool,
-  // Add more prop types for future customization
+  fieldProps: PropTypes.object, // Props for field customization
+  otherProps: PropTypes.object, // Allow for additional props
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   field: {
     width: 40,
     height: 40,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 4,
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 16,
   },
   resendButton: {
@@ -100,10 +106,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 4,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
   },
   resendButtonText: {
-    color: '#333',
+    color: "#333",
     fontSize: 14,
   },
 });

@@ -18,9 +18,8 @@ import Toyota, {
 
 import { useNavigation } from "@react-navigation/native";
 
-
 const CarsLogo = () => {
-  const navv = useNavigation()
+  const navv = useNavigation();
   const [scrollCardData, setScrollCardData] = React.useState([
     // Add your scroll card data here (image URLs, titles, etc.)
 
@@ -73,7 +72,6 @@ const CarsLogo = () => {
         <Pressable
           onPress={() => {
             console.log("click");
-            navv.navigate('otp')
           }}
           className='right-3 top-1 absolute'>
           <Text className=' text-texttt font-bold'>العلامات التجارية</Text>
@@ -81,8 +79,8 @@ const CarsLogo = () => {
 
         <Pressable
           onPress={() => {
-            console.log("click")
-            
+            console.log("click");
+            navv.navigate("carsgrid");
           }}
           className='left-3 top-1 absolute'>
           <Text className=' text-primary font-bold'>المزيد</Text>
@@ -94,7 +92,11 @@ const CarsLogo = () => {
           data={scrollCardData}
           renderItem={({ item }) => (
             <View>
-              <TouchableOpacity className='p-4 bg-primary mx-2 rounded-2xl flex items-center justify-center'>
+              <TouchableOpacity
+                className='p-4 bg-primary mx-2 rounded-2xl flex items-center justify-center'
+                onPress={() => {
+                  navv.navigate("cars")
+                }}>
                 {item.imageUrl}
               </TouchableOpacity>
               <Text className='text-center mt-2 text-texttt'>{item.title}</Text>

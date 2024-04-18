@@ -133,7 +133,7 @@ const LoginScreen = () => {
             </Pressable>
           </View>
           <Pressable
-            onPress={() => console.log("forget the pass")}
+            onPress={() => navigation.navigate("otp")}
             className=' ml-48 '>
             <Text className=' text-primary mb-5 mt-0  text-right '>
               نسيت كلمة المرور ?

@@ -36,6 +36,7 @@ export type IUser = {
   name: string;
   phone_number: string;
   email: string;
+  points: string;
 };
 
 export type INewUser = {
@@ -44,4 +45,3 @@ export type INewUser = {
   phoneNumber?: string; // جعل رقم الهاتف اختياريًا
   password: string;
 };
-

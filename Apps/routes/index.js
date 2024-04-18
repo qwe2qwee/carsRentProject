@@ -15,6 +15,7 @@ import Bookin from "../screens/Bookin";
 import CarsScreen from "../screens/CarsScreen";
 import OtpScreen from "../screens/OtpScreen";
 import WelcomScreen from "../screens/WelcomScreen";
+import Carsgird from "../screens/Carsgird";
 
 const Stack = createStackNavigator();
 
@@ -39,7 +40,6 @@ function MyStack() {
       screenOptions={{
         headerTitle: false,
       }}>
-        
       <Stack.Screen
         name='Login'
         component={LoginScreen}
@@ -143,6 +143,15 @@ function MyStack() {
         name='welcome'
         component={WelcomScreen}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='carsgrid'
+        component={Carsgird}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+          headerBackTitleStyle: { display: "none" },
+        }}
       />
     </Stack.Navigator>
   );

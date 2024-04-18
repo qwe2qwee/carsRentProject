@@ -105,7 +105,7 @@ const CarsList = ({ grid }) => {
   } else {
     countainer = "bg-white my-3  mx-2 rounded-lg pt-5 ";
     title =
-      "font-bold text-texttt flex justify-center items-end w-3/4 flex-1  text-[15px] ";
+      "font-bold text-texttt flex justify-center items-end w-3/4 flex-1  text-[15px] overflow-hidden ";
     textVsButton = "p-3 rounded-lg py-3";
     butt = "";
     modeel = "hidden";
@@ -156,7 +156,7 @@ const CarsList = ({ grid }) => {
                   </View>
                 </View>
                 <View className={visi}>
-                  <Text className='m-auto text-primary text-xl font-bold'>
+                  <Text className='m-auto text-primary text-xl font-bold '>
                     {product.price}
                   </Text>
                   <Text className='m-auto text-primary text-xs '>

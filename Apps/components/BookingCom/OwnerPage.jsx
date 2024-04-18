@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Pressable } from "react-native";
 import Lable from "./Lable"; // Assuming Lable is a custom component for labels
+import Loading from "../Loading";
 
 const installments = [12, 24, 30, 36]; // More descriptive variable name
 
@@ -13,8 +14,8 @@ const OwnerPage = () => {
   };
 
   return (
-    <View className='flex flex-1'>
-      <Lable title='اختر عدد الاقساط' />
+    <View className='flex flex-1 justify-center items-center'>
+      {/* <Lable title='اختر عدد الاقساط' />
       <View className='w-full bg-secondary h-32 flex flex-row justify-center items-center'>
         {installments.map((installment) => (
           <Pressable // Use Pressable for interactive buttons
@@ -37,7 +38,9 @@ const OwnerPage = () => {
           </Pressable>
         ))}
       </View>
-      <Text>{selectedInstallment}</Text>
+      <Text>{selectedInstallment}</Text> */}
+
+      <Loading />
     </View>
   );
 };

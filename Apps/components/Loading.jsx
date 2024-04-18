@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <View className='justify-center items-center'>
       <ActivityIndicator size='large' color='#fff' />
-      <Text className='text-white'>جاري التحميل</Text>
+      <Text className='text-primary'>ياتي قريبا</Text>
     </View>
   );
 };

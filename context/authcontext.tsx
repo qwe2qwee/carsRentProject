@@ -9,6 +9,7 @@ export const INITIAL_USER = {
   name: "",
   phone_number: "",
   email: "",
+  points: ""
 };
 
 const INITIAL_STATE = {
@@ -47,6 +48,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           name: currentAccount.name,
           phone_number: currentAccount.phone_number,
           email: currentAccount.email,
+          points: currentAccount.loyalty_points, 
         });
         setIsAuthenticated(true);
         return true;
