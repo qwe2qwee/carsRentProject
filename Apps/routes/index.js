@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useUserContext } from "../../context/authcontext";
 import Bookin from "../screens/Bookin";
 import CarsScreen from "../screens/CarsScreen";
-import OtpScreen from "../screens/OtpScreen";
+import OtpScreen from "../components/OtpScreen";
 import WelcomScreen from "../screens/WelcomScreen";
 import Carsgird from "../screens/Carsgird";
 

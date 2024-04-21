@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import Button from "../components/Button"; // Assuming Button is a custom component
+import Button from "./Button"; // Assuming Button is a custom component
 import { useNavigation } from "@react-navigation/native";
-import OTPInputView from "./OtpInputView";
+import OTPInputView from "../screens/OtpInputView";
 
 const OtpScreen = () => {
   const navigation = useNavigation();

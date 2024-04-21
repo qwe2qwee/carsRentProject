@@ -11,21 +11,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useUserContext } from "../../../context/authcontext";
 import * as SplashScreen from "expo-splash-screen";
 
-
-
 // import { Icon } from '@rneui/themed';
 
 const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const { isAuthenticated } = useUserContext();
   const [useri, setUser] = useState(false);
-  const {user} = useUserContext()
+  const { user } = useUserContext();
 
-  useEffect(async () => {
-    let real = await checkAuthUser();
-    setUser(real);
-    console.log("reces");
-
-  }, []);
 
   const sidebarClasses = `  absolute z-30 right-0 top-0 h-screen overflow-auto bg-white shadow-lg w-72 bg-red transition duration-1000 ease-in-out transform rounded-l-3xl shadow-3xl z-30 ${
     isOpen ? "-translate-x-0" : "-translate-x-full"
@@ -50,12 +42,14 @@ const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
                 <Feather name='x' size={24} color='#6C6C6C' />
               </Pressable>
               <View className='mt-16'>
-                {useri && (
+                {isAuthenticated && (
                   <SidebarLink
                     label='الملف الشخصي'
-                    onPress={() => navigation.navigate("profile",{
-                      userId:user?.id
-                    })}
+                    onPress={() =>
+                      navigation.navigate("profile", {
+                        userId: user?.id,
+                      })
+                    }
                     icon={
                       <Ionicons
                         name='person-circle-outline'
@@ -65,7 +59,7 @@ const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
                     }
                   />
                 )}
-                {useri && (
+                {isAuthenticated && (
                   <SidebarLink
                     label='حجوزاتي'
                     onPress={() => navigation.navigate("reservations")}
@@ -74,7 +68,7 @@ const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
                     }
                   />
                 )}
-                {useri && (
+                {isAuthenticated && (
                   <SidebarLink
                     label='المفضلة'
                     onPress={() => navigation.navigate("favorite")}
@@ -101,7 +95,7 @@ const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
                     <Ionicons name='reader-outline' size={20} color='#FF6600' />
                   }
                 />
-                {useri && (
+                {isAuthenticated && (
                   <SidebarLink
                     label='تسجيل الخروج'
                     icon={<AntDesign name='logout' size={20} color='#FF6600' />}
@@ -109,7 +103,7 @@ const Sidebar = ({ toggleSidebar, isOpen, Signout }) => {
                   />
                 )}
 
-                {!useri && (
+                {!isAuthenticated && (
                   <SidebarLink
                     onPress={() => navigation.navigate("Login")}
                     label='تسجيل الدخول'

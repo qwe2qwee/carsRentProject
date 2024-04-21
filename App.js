@@ -11,23 +11,30 @@ import MyStack from "./Apps/routes";
 import { AuthProvider, useUserContext } from "./context/authcontext";
 import { QueryProvider } from "./lib/react-quary/QueryProvider";
 import { useCallback, useEffect, useState } from "react";
-import OtpScreen from "./Apps/screens/OtpScreen";
+import OtpScreen from "./Apps/components/OtpScreen";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(null);
 
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const {
+    checkAuthUser,
+    isLoading: isUserLoading,
+    isAuthenticated,
+  } = useUserContext();
 
-  useEffect(async () => {
-    let real = await checkAuthUser();
-    setAppIsReady(real);
-    console.log("log");
+  useEffect(() => {
+    const checkAuth = async () => {
+      const isAuth = await checkAuthUser();
+      setAppIsReady(isAuth);
+    };
+    checkAuth();
   }, []);
 
-  if (appIsReady === false) {
-    SplashScreen.hideAsync();
+  console.log(appIsReady);
+
+  if (isAuthenticated === false) {
   }
 
   return (

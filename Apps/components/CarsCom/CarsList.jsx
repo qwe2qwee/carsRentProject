@@ -149,7 +149,12 @@ const CarsList = ({ grid }) => {
               </View>
               <View className={textVsButton}>
                 <View className={textCountainer}>
-                  <Text className={title}>{product.title}</Text>
+                  <Text
+                    className={title}
+                    numberOfLines={1}
+                    ellipsizeMode='tail'>
+                    {product.title}
+                  </Text>
                   <View className={boderCoun}>
                     <Text className={model}>{product.model}</Text>
                     <Text className={modeel}>مودل</Text>

@@ -80,8 +80,12 @@ export async function signInAccount(user: { email: string; password: string }) {
     // 3. تخزين معرف الجلسة بشكل آمن
     await AsyncStorage.setItem("cookieFallback", session.$id);
 
+    
+
     // 4. إرجاع كائن الجلسة
     return session;
+
+
   } catch (error) {
     // 5. معالجة الأخطاء بذكاء
     console.error("فشل تسجيل الدخول:", error); // تسجيل الدخول للتصحيح

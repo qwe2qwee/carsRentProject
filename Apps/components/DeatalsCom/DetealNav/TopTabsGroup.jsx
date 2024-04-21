@@ -18,10 +18,11 @@ const TopTabsGroup = ({ Data }) => {
         activeBackgroundColor: "red",
         labelStyle: { fontSize: 10 },
       }}>
+      <TopTabs.Screen name='المميزات' component={Features} />
+
       <TopTabs.Screen name='اقساط' component={Installments} />
 
       <TopTabs.Screen name='مواصفات السيارة' component={Specifications} />
-      <TopTabs.Screen name='مميزات السيارة' component={Features} />
       <TopTabs.Screen
         name='تفاصيل السيارة'
         component={Deatals}

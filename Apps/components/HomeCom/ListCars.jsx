@@ -69,7 +69,7 @@ const ListCars = () => {
             key={product.id}
             className=' w-1/2'>
             <View className=' bg-white my-2  mx-2 rounded-lg pt-5'>
-              <View className="relative  h-24 w-20 bg-cover object-cover">
+              <View className='relative  h-24 w-20 bg-cover object-cover'>
                 <Image
                   source={product.imageUrl}
                   className='object-cover absolute'
@@ -78,7 +78,10 @@ const ListCars = () => {
 
               <View className='p-3 rounded-lg py-3 '>
                 <View className='flex-row-reverse flex-nowrap '>
-                  <Text className='font-bold text-texttt flex justify-center items-end w-2/3 flex-1  text-[15px] '>
+                  <Text
+                    className='font-bold text-texttt flex justify-center items-end w-2/3 flex-1  text-[15px] '
+                    numberOfLines={1}
+                    ellipsizeMode='tail'>
                     {product.title}
                   </Text>
                   <View className='flex justify-center items-end  w-2/5 border-r-[1px] text-texttt border-texttt  px-1 text-[13px] mx-1 '>

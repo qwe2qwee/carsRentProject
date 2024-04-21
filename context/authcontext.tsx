@@ -9,8 +9,9 @@ export const INITIAL_USER = {
   name: "",
   phone_number: "",
   email: "",
-  points: ""
+  points: "",
 };
+import * as SplashScreen from "expo-splash-screen";
 
 const INITIAL_STATE = {
   user: INITIAL_USER,
@@ -48,24 +49,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           name: currentAccount.name,
           phone_number: currentAccount.phone_number,
           email: currentAccount.email,
-          points: currentAccount.loyalty_points, 
+          points: currentAccount.loyalty_points,
         });
+        navigation.navigate("home");
         setIsAuthenticated(true);
+        SplashScreen.hideAsync();
         return true;
       }
+      setIsAuthenticated(false);
       return false;
     } catch (error) {
       console.error(error);
       return false;
     } finally {
       setIsLoading(false);
+      SplashScreen.hideAsync();
     }
   };
 
   useEffect(() => {
     const checkAuthStatus = async () => {
       // Retrieve data from AsyncStorage using getItem
-      const cookieFallback = await AsyncStorage.getItem("cookieFallback");
+      const cookieFallback = await AsyncStorage.getItem("userId");
 
       if (
         cookieFallback === "[]" ||

@@ -18,66 +18,70 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(true);
-  const { checkAuthUser, isLoading } = useUserContext();
+  const { checkAuthUser, isLoading, isAuthenticated } = useUserContext();
+  const [Loading, setLoading] = useState(false);
 
   const navigation = useNavigation();
 
   const { mutateAsync: signInAccount } = useSignInAccount();
 
-  const reY = async () => {
-    const isLoggedIn = await checkAuthUser();
-
-    if (isLoggedIn) {
-      navigation.navigate("home");
-    }
-  };
-
-  useEffect(() => {
-    reY();
-  }, []);
-
   const handleLogin = async () => {
     // Basic field validation with error handling
+    if (!email.trim() || !password.trim()) {
+      setError("الرجاء ملئ كل البيانات");
+      return;
+    }
+
     try {
-      if (!email.trim() || !password.trim()) {
-        throw new Error("الرجاء ملئ كل البيانات");
-      }
 
       // Enhanced email validation using a regular expression
       const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (!emailRegex.test(email)) {
         throw new Error("الايميل غير صالح");
       }
+
+      const user = {
+        email: email.trim(),
+        password: password.trim(),
+      };
+
+      setLoading(true);
+
+      const session = await signInAccount({
+        email: user.email,
+        password: user.password,
+      });
+
+      if (!session) {
+        setError("الرجاء التحقق من صحة البيانات");
+        // navigation.navigate("Login");
+        setLoading(false);
+        return;
+      }
     } catch (error) {
-      setError(error.message);
+      if (
+        error.message ===
+        "Invalid credentials. Please check the email and password."
+      ) {
+        setError("بريد إلكتروني أو كلمة مرور غير صحيحة");
+        setLoading(false);
+        return;
+      }
       return;
     }
 
-    const user = {
-      email: email.trim(),
-      password: password.trim(),
-    };
+    const isLoggedIn = await checkAuthUser();
 
-    const session = await signInAccount({
-      email: user.email,
-      password: user.password,
-    });
-
-    if (!session) {
-      setError("الرجاء التحقق من صحة البيانات");
-      // navigation.navigate("Login");
-      return;
-    }
+    console.log(isLoggedIn);
 
     try {
-      const isLoggedIn = await checkAuthUser();
-
       if (isLoggedIn) {
         setEmail("");
         setPassword("");
-
         navigation.navigate("home");
+        setLoading(false);
       } else {
+        setLoading(false);
         return setError('"فشل تسجيل الدخول الرجاء المحاولة لاحقا"');
       }
 
@@ -140,7 +144,7 @@ const LoginScreen = () => {
             </Text>
           </Pressable>
 
-          <Button title='تسجيل دخول' onPress={handleLogin} />
+          <Button title='تسجيل دخول' onPress={handleLogin} loading={Loading} />
           <Text className='text-red-600'>{error}</Text>
           <View className=' flex flex-row-reverse justify-between mt-7'>
             <Pressable onPress={() => navigation.navigate("Signup")}>

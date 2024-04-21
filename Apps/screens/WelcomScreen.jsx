@@ -27,8 +27,8 @@ const WelcomScreen = () => {
             />
           </View>
         </View>
-        <View className='flex justify-center items-end  pt-12 pr-5'>
-          <Text className='text-primary text-4xl'>امتلك سيارة</Text>
+        <View className='flex justify-center items-end  mt-12 mr-5'>
+          <Text className='text-primary text-4xl my-2'>امتلك سيارة</Text>
           <Text className='text-primary text-4xl'>دون قيود</Text>
         </View>
         <TouchableOpacity

@@ -15,8 +15,10 @@ import { ScrollView } from "react-native";
 
 const Carsgird = () => {
   const ScrollCard = ({ item, onPress }) => (
-    <View key={item.id || index} className='m-4'>
-      <View>
+    <View
+      key={item.id || index}
+      className='m-4 mx-5 w-1/3 flex items-center justify-center'>
+      <View className=''>
         <TouchableOpacity
           className='p-6 bg-primary mx-2 rounded-2xl flex items-center justify-center'
           onPress={onPress}>
@@ -77,7 +79,7 @@ const Carsgird = () => {
   ]);
   return (
     <ScrollView className='h-full w-full'>
-      <View className='grid justify-items-center'>
+      <View className=' items-center justify-center flex flex-row flex-wrap'>
         {scrollCardData.map((item, index) => (
           <ScrollCard
             key={item.id || index}

@@ -36,16 +36,32 @@ const SignUpScreen = () => {
   const [showPassword, setShowPassword] = useState(true);
   const [showConfirmPassword, setShowConfirmPassword] = useState(true);
 
+  const [Loading, setLoading] = useState(false);
+
   const navigation = useNavigation();
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
 
   let passShow = showPassword ? "#6C6C6C" : "black";
   let passShowCon = showConfirmPassword ? "#6C6C6C" : "black";
 
-
-
   const handleSignup = async () => {
+    const minLength = 8;
+    setError("");
+
     // Basic field validation with error handling
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':",./<>?|\\ ]/.test(
+      password
+    );
+
+    const complexityScore =
+      (hasUppercase ? 1 : 0) +
+      (hasLowercase ? 1 : 0) +
+      (hasNumber ? 1 : 0) +
+      (hasSpecialChar ? 1 : 0);
+
     try {
       if (
         !name.trim() ||
@@ -60,16 +76,26 @@ const SignUpScreen = () => {
       const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (!emailRegex.test(email)) {
         throw new Error("الايميل غير صالح");
+        return;
       }
 
       if (password !== passwordConfirm) {
         setError("كلمات المرور غير متطابقة. يرجى التأكد من إدخالها بشكل صحيح.");
         return;
       }
+
+      if (password.length < minLength) {
+        setError("يجب ان يكون الرمز السري أكثر من " + minLength + "احرف");
+        return;
+      } else if (complexityScore < 3) {
+        setError("الرمز السري يجب ان يتضمن تشكيله من احرف كبيرة و ارقام");
+        return;
+      }
     } catch (error) {
       setError(error.message);
       return;
     }
+    setLoading(true);
 
     // Create a user object with trimmed values
     const user = {
@@ -80,10 +106,10 @@ const SignUpScreen = () => {
     };
 
     try {
-      // Call createUserAccount and handle potential errors
+      // Call createUserAccount and handlre potential errors
       const newUser = await createUserAccount(user);
       if (!newUser) {
-        throw new Error("فشل في إنشاء مستخدم جديد");
+        throw new Error("يبدو ان المستخدم موجود بالفعل");
       }
 
       const session = await signInAccount({
@@ -105,7 +131,10 @@ const SignUpScreen = () => {
         setEmail("");
         setPassword("");
         navigation.navigate("welcome");
+        setLoading(false);
       } else {
+        setLoading(false);
+
         return setError('"فشل تسجيل الدخول , الرجاء المحاولة مجددا"');
       }
 
@@ -193,10 +222,8 @@ const SignUpScreen = () => {
               />
             </Pressable>
           </View>
-          <Button title='انشاء' onPress={handleSignup} />
-          {isUserLoading && (
-            <Text className='text-blue-600'>Loading..</Text>
-          )}
+          <Button title='انشاء' onPress={handleSignup} loading={Loading} />
+
           <Text className='text-red-600'>{error}</Text>
           <View className=' flex flex-row justify-between mt-5'>
             <Pressable onPress={() => navigation.navigate("home")}>
